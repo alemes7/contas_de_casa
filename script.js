@@ -62,4 +62,54 @@ document.addEventListener("DOMContentLoaded", function() {
             listaContasEnergia.appendChild(mesItem);
         }
     }
+
+    // Referência aos elementos HTML para alternar entre os gráficos de água e energia
+    const botaoAlternarAgua = document.getElementById("alternarGraficoAgua");
+    const graficoContainerAgua = document.getElementById("graficoAgua");
+    const graficoImagemAgua = graficoContainerAgua.querySelector("img");
+
+    let exibirGraficoDeBarrasAgua = false;
+
+    // Função para alternar a exibição do gráfico de água
+    function alternarGraficoAgua() {
+        exibirGraficoDeBarrasAgua = !exibirGraficoDeBarrasAgua;
+
+        // Atualiza a imagem do gráfico com base na escolha
+        if (exibirGraficoDeBarrasAgua) {
+            graficoImagemAgua.src = "/img/agua_bar_chart.png";
+        } else {
+            graficoImagemAgua.src = "/img/agua_line_chart.png";
+        }
+    }
+
+    // Adiciona um ouvinte de eventos para alternar o gráfico de água quando o botão é clicado
+    botaoAlternarAgua.addEventListener("click", alternarGraficoAgua);
+
+    // Chama a função para definir o gráfico de água inicialmente
+    alternarGraficoAgua();
+    
+    // Referência aos elementos HTML para alternar entre os gráficos de energia
+    const botaoAlternarEnergia = document.getElementById("alternarGraficoEnergia");
+    const graficoContainerEnergia = document.getElementById("graficoEnergia");
+    const graficoImagemEnergia = graficoContainerEnergia.querySelector("img");
+
+    let exibirGraficoDeBarrasEnergia = false;
+
+    // Função para alternar a exibição do gráfico de energia
+    function alternarGraficoEnergia() {
+        exibirGraficoDeBarrasEnergia = !exibirGraficoDeBarrasEnergia;
+
+        // Atualiza a imagem do gráfico com base na escolha
+        if (exibirGraficoDeBarrasEnergia) {
+            graficoImagemEnergia.src = "/img/energia_bar_chart.png";
+        } else {
+            graficoImagemEnergia.src = "/img/energia_line_chart.png";
+        }
+    }
+
+    // Adiciona um ouvinte de eventos para alternar o gráfico de energia quando o botão é clicado
+    botaoAlternarEnergia.addEventListener("click", alternarGraficoEnergia);
+
+    // Chama a função para definir o gráfico de energia inicialmente
+    alternarGraficoEnergia();
 });
