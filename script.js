@@ -76,9 +76,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Atualiza a imagem do gráfico com base na escolha
         if (exibirGraficoDeBarrasAgua) {
-            graficoImagemAgua.src = "/img/agua_bar_chart.png";
+            graficoImagemAgua.src = "img/aguabar.jpeg";
         } else {
-            graficoImagemAgua.src = "/img/agua_line_chart.png";
+            graficoImagemAgua.src = "img/agualine.jpeg";
         }
     }
 
@@ -101,9 +101,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Atualiza a imagem do gráfico com base na escolha
         if (exibirGraficoDeBarrasEnergia) {
-            graficoImagemEnergia.src = "/img/energia_bar_chart.png";
+            graficoImagemEnergia.src = "img/energiabar.jpeg";
         } else {
-            graficoImagemEnergia.src = "/img/energia_line_chart.png";
+            graficoImagemEnergia.src = "img/energialine.jpeg";
         }
     }
 
