@@ -1,3 +1,17 @@
+/* Estilos para o menu */
+.nav-menu {
+    border: 1px solid #ddd;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #FFF;
+    border-radius: 8px;
+    color: #000;
+    text-align: center;
+    display: flex;
+    justify-content: space-between; /* Alinhe os itens do menu no espaço entre eles */
+    align-items: center; /* Alinhe os itens verticalmente no centro */
+}
+
 .menu {
     border: 1px solid #ddd;
     margin: 1rem;
@@ -7,8 +21,72 @@
     color: #000;
     text-align: center; /* Centralizar o texto no menu */
 }
+/* Estilo para as opções de menu */
+.menu a {
+    text-decoration: none;
+    color: #000;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+.menu a:hover {
+    background-color: #ddd;
+}
 
-.button {
+
+
+/* Estilos para o botão "MENU" e ícone de alternância */
+.toggle {
+    gap: 0.5rem;
+    background-color: black;
+    padding: 0.625rem;
+    border-radius: 5px;
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: none;
+    color: #FFF;
+}
+
+/* Estilos para o botão de alternância em telas menores */
+@media screen and (max-width: 768px) {
+    .toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        margin-top: 10px;
+    }
+}
+
+/* Estilos para a lista de itens de menu */
+.menu-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilos para itens de menu */
+.menu-link {
+    margin-right: 10px;
+}
+
+/* Estilos para links dentro dos itens de menu */
+.menu-link a {
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    align-items: center;
+}
+
+/* Estilos para o ícone dentro dos itens de menu */
+.menu-link a .material-symbols-outlined {
+    margin-right: 5px;
+}
+
+/* Estilos para botões (pode ser usado para o botão "Registrar") */
+.custom-button {
     background-color: #007bff;
     color: #fff;
     padding: 0.5rem 1rem;
@@ -17,19 +95,67 @@
     cursor: pointer;
     transition: background-color 0.3s;
     text-decoration: none;
-    display: inline-block; /* Adicione isso para transformar o botão em um elemento em bloco para centralizá-lo */
-    margin: 5px; /* Adicione margem para separar os botões */
+    display: inline-block;
+    margin: 5px;
 }
 
-.button:hover {
+.custom-button:hover {
     background-color: #0056b3;
 }
 
+/* Estilos para o botão de alternância de menu (hamburguer) com a classe "toggle" quando a tela é menor (max-width: 768px) */
 @media screen and (max-width: 768px) {
-    .menu {
-        align-items: center;
-        justify-content: center;
-        text-align: center;
+    .toggle {
+        display: flex; /* Exibe o botão de alternância em telas menores */
+    }
+
+    .js-list {
+        display: none; /* Oculta a lista de itens de menu em telas menores */
     }
 }
 
+/* Estilos para itens de menu dentro de uma lista com a classe "js-list" em telas menores (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    .menu {
+        height: 70px; /* Define a altura do menu em telas menores */
+    }
+
+    .js-list {
+        display: none; /* Oculta a lista de itens de menu */
+        animation: fadeOut .3s forwards; /* Adiciona uma animação de desaparecimento */
+    }
+
+    .toggle {
+        display: flex; /* Exibe o botão de alternância em telas menores */
+        height: 50px; /* Define a altura do botão de alternância */
+        margin-top: 10px; /* Adiciona margem superior */
+    }
+
+    .js-list.active {
+        display: block; /* Exibe a lista de itens de menu ativa */
+        position: absolute; /* Define a posição absoluta para a lista de itens de menu */
+        top: 90px; /* Define a posição superior da lista de itens de menu */
+        left: 0; /* Alinha a lista à esquerda do contêiner pai */
+        width: 100%; /* Ocupa toda a largura disponível */
+        background-color: var(--background-green); /* Define a cor de fundo usando uma variável */
+        z-index: 100; /* Define a ordem de empilhamento (z-index) para sobrepor outros elementos */
+        animation: slideDownMenu .5s forwards; /* Adiciona uma animação para expandir a lista de itens de menu */
+    }
+
+    .toggle span.active {
+        animation: slideDownMenu .5s forwards; /* Adiciona uma animação para o ícone de alternância do menu */
+    }
+}
+
+/* Animação para deslizar para baixo o menu */
+@keyframes slideDownMenu {
+    from {
+        opacity: 0; /* Começa com opacidade zero */
+        transform: translateX(-10px); /* Começa 10 pixels à esquerda */
+    }
+
+    to {
+        opacity: 1; /* Termina com opacidade total */
+        transform: translateX(0); /* Sem deslocamento horizontal */
+    }
+}
